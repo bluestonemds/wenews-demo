@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>梨树微报纸演示页面</title>
+    <link
+      href="https://unpkg.com/tailwindcss@^1.0/dist/tailwind.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@tailwindcss/ui@latest/dist/tailwind-ui.min.css"
+    />
+  </head>
+  <body class="text-gray-900">
+    <div class="container mx-auto">
+      <div class="relative inline-block text-left">
+        <div>
+          <span class="rounded-md shadow-sm">
+            <button
+              type="button"
+              class="inline-flex justify-center w-full rounded-md border border-gray-300 px-4 py-2 bg-white text-sm leading-5 font-medium text-gray-700 hover:text-gray-500 focus:outline-none focus:border-blue-300 focus:shadow-outline-blue active:bg-gray-50 active:text-gray-800 transition ease-in-out duration-150"
+              id="options-menu"
+              aria-haspopup="true"
+              aria-expanded="true"
+              onclick="switchMenu()"
+            >
+              2020年第70期第一版
+              <svg
+                class="-mr-1 ml-2 h-5 w-5"
+                viewBox="0 0 20 20"
+                fill="currentColor"
+              >
+                <path
+                  fill-rule="evenodd"
+                  d="M5.293 7.293a1 1 0 011.414 0L10 10.586l3.293-3.293a1 1 0 111.414 1.414l-4 4a1 1 0 01-1.414 0l-4-4a1 1 0 010-1.414z"
+                  clip-rule="evenodd"
+                />
+              </svg>
+            </button>
+          </span>
+        </div>
+
+        <!--
+          Dropdown panel, show/hide based on dropdown state.
+      
+          Entering: "transition ease-out duration-100"
+            From: "transform opacity-0 scale-95"
+            To: "transform opacity-100 scale-100"
+          Leaving: "transition ease-in duration-75"
+            From: "transform opacity-100 scale-100"
+            To: "transform opacity-0 scale-95"
+        -->
+        <div
+          id="switch-menu"
+          class="origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg transform opacity-100 scale-100"
+          data-boolean="true"
+        >
+          <div class="rounded-md bg-white shadow-xs">
+            <div
+              class="py-1"
+              role="menu"
+              aria-orientation="vertical"
+              aria-labelledby="options-menu"
+            >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                role="menuitem"
+                >战高峰来我县检查高考考务工作</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                role="menuitem"
+                >县人民政府第十八届四十二次常务会议召开</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                role="menuitem"
+                >省人社厅来我县考察流动人员认识档案标准化建设项目</a
+              >
+              <a
+                href="#"
+                class="block px-4 py-2 text-sm leading-5 text-gray-700 hover:bg-gray-100 hover:text-gray-900 focus:outline-none focus:bg-gray-100 focus:text-gray-900"
+                role="menuitem"
+                >市人大视察组来我县视察工业经济运行情况</a
+              >
+            </div>
+          </div>
+        </div>
+      </div>
+      <img src="news.png" alt="梨树时报" usemap="#news" />
+      <map id="news">
+        <area shape="rect" coords="10,10,100,100" href="#" />
+        <area shape="rect" coords="10,10,100,100" href="#" />
+        <area shape="rect" coords="10,10,100,100" href="#" />
+        <area shape="rect" coords="10,10,100,100" href="#" />
+      </map>
+    </div>
+  </body>
+  <script>
+    function switchMenu() {
+      console.log("here");
+      if ($("#switch-menu").data("boolean") === "false") {
+        $("#switch-menu").attr(
+          "class",
+          "origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg transform opacity-100 scale-100"
+        );
+        $("#switch-menu").data("boolean","true")
+      } else {
+        $("#switch-menu").attr(
+          "class",
+          "origin-top-right absolute right-0 mt-2 w-56 rounded-md shadow-lg transform opacity-0 scale-95"
+        );
+        $("#switch-menu").data("boolean","false")
+      }
+    }
+  </script>
+  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.min.js"></script>
+</html>
